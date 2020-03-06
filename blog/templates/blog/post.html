@@ -1,0 +1,38 @@
+{% extends 'blog/layout.html' %}
+{% load static %}
+
+{% block content %}
+
+<header class="masthead" style="background-image:url({% static 'images/post-bg.jpg' %});">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto">
+                <div class="post-heading">
+                    <h1>{{post.title}}</h1>
+                    <h2 class="subheading">Problems look mighty small from 150 miles up</h2><span class="meta">Posted by&nbsp;<a>Admin</a>&nbsp;on {{post.created_at}}</span></div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto">
+                <h2 class="section-heading">{{post.title}}</h2>
+                <p>{{post.body}}</p>
+                <br>
+                <p class="post-meta">Posted on&nbsp;{{post.created_at}}</p>
+            </div>
+        </div>
+    </div>
+</article>
+
+<form action="/your-name/" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock %}
