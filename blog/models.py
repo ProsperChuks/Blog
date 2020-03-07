@@ -16,3 +16,6 @@ class contact(models.Model):
     email = models.EmailField()
     phone = models.IntegerField()
     message = models.TextField(max_length=1000)
+    
+    def __str__(self):
+        return self.name
