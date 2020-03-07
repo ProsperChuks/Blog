@@ -31,7 +31,6 @@ def contact(request):
             email = form.cleaned_data['email']
             phone = form.cleaned_data['phone']
             message = form.cleaned_data['message']
-            print(name + " said " + message)
 
     form = contactForm()
     return r(request, 'blog/contact.html', {'form':form})

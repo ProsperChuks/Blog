@@ -2,8 +2,6 @@ from django.db import models
 from datetime import datetime as dt
 from django.utils import timezone
 
-# Create your models here.
-
 class posts(models.Model):
     title = models.CharField(max_length=200)
     body = models.TextField()
@@ -12,3 +10,9 @@ class posts(models.Model):
         return self.title
     class Meta:
         verbose_name_plural = 'Posts'
+
+class contact(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone = models.IntegerField()
+    message = models.TextField(max_length=1000)
