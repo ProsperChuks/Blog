@@ -24,8 +24,16 @@ def about(request):
 
 def contact(request):
 
-    form = contactForm()
+    if request.method == 'POST':
+        form = contactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            phone = form.cleaned_data['phone']
+            message = form.cleaned_data['message']
+            print(name + " said " + message)
 
+    form = contactForm()
     return r(request, 'blog/contact.html', {'form':form})
 
 # Creating a form

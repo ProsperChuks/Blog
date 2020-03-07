@@ -7,4 +7,4 @@ class contactForm(forms.Form):
     name = forms.CharField(label='Name')
     email = forms.EmailField(label='Email Address')
     phone = forms.IntegerField(label='Phone Number')
-    messgae = forms.CharField(widget=forms.Textarea, label='Message')
+    message = forms.CharField(widget=forms.Textarea, label='Message')
