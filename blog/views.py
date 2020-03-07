@@ -1,7 +1,7 @@
 from django.shortcuts import render as r
 from django.http import HttpResponseRedirect, HttpResponse as hr
 from .models import posts
-from .forms import NameForm
+from .forms import NameForm, contactForm
 
 # Create your views here.
 def hero(request):
@@ -23,7 +23,10 @@ def about(request):
     return r(request, 'blog/about.html')
 
 def contact(request):
-    return r(request, 'blog/contact.html')
+
+    form = contactForm()
+
+    return r(request, 'blog/contact.html', {'form':form})
 
 # Creating a form
 def get_name(request):
