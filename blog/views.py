@@ -2,6 +2,13 @@ from django.shortcuts import render as r
 from django.http import HttpResponseRedirect, HttpResponse as hr
 from .models import posts
 from .forms import NameForm, contactForm
+from rest_framework import viewsets
+from .serializer import postSerializer
+from .models import posts
+
+class postViewSet(viewsets.ModelViewSet):
+    queryset = posts.objects.all()
+    serializer_class = postSerializer
 
 # Create your views here.
 def hero(request):
