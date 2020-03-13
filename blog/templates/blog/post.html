@@ -1,8 +1,8 @@
 {% extends 'blog/layout.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-
 <header class="masthead" style="background-image:url({% static 'images/post-bg.jpg' %});">
     <div class="overlay"></div>
     <div class="container">
@@ -28,11 +28,13 @@
         </div>
     </div>
 </article>
-
-<form action="/your-name/" method="POST">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
-
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-lg-8 mx-auto">
+            <h3>{{comment}}</h3> <br>
+            {% crispy form form.helper %}
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -1,7 +1,7 @@
 from django.shortcuts import render as r
 from django.http import HttpResponseRedirect, HttpResponse as hr
-from .models import posts
-from .forms import NameForm, contactForm
+from .models import posts, comment as cmm
+from .forms import *
 from rest_framework import viewsets
 from .serializer import postSerializer
 from .models import posts
@@ -15,14 +15,22 @@ def hero(request):
     post = posts.objects.all()[:10]
     context = {
         'title':'Blog Application',
-        'post' : post,
+        'post' : post
     }
     return r(request, 'blog/index.html', context)
 
 def post(request, id):
     post = posts.objects.get(id=id)
+    form = contactForm(request.POST)
+    if form.is_valid():
+        name = form.cleaned_data['name']
+        comment = form.cleaned_data['comment']
+
+    form = commentForm()
     context = {
-        'post' : post
+        'post' : post,
+        'form' : form,
+        'comment' : 'Comments'
     }
     return r(request, 'blog/post.html', context)
 
@@ -42,15 +50,5 @@ def contact(request):
     form = contactForm()
     return r(request, 'blog/contact.html', {'form':form})
 
-# Creating a form
-def get_name(request):
-
-    if request.method == 'POST':
-        form = NameForm(request.POST)
-        #validating the form
-        if form.is_valid():
-            return HttpResponseRedirect('/thanks/')
-    else:
-        # else it generates an empty form
-        form = NameForm()
-    return r(request, 'blog/post.html', {'form' : form})
+def coment(request):
+    return hr("<h1>validated</h1>")
