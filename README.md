@@ -1,7 +1,7 @@
 # Blog App built with Django
 
 Deployed at Heroku,
-Access at https://django-blog-app9.herokuapp.com
+Access at https://django-blog-app9.herokuapp.com<br/>
 Access Post API at https://django-blog-app9.herokuapp.com/api/Posts/?format=json
 
 ### To-Do
