@@ -38,5 +38,5 @@ six==1.11.0
 soupsieve==1.9.5
 sqlparse==0.3.0
 termcolor==1.1.0
-urllib3==1.24.3
+urllib3==1.26.5
 wcwidth==0.1.7
