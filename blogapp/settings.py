@@ -29,6 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'http://django-blog-app9.herokuapp.com/',
     'localhost',
+    '127.0.0.1',
     ]
 
 
