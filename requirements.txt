@@ -29,7 +29,7 @@ pathspec==0.5.9
 pypiwin32==223
 python-dateutil==2.8.0
 pytz==2019.3
-pywin32==227
+pywin32==301
 PyYAML==3.13
 requests==2.20.1
 s3transfer==0.2.1
